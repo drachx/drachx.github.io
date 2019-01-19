@@ -1,0 +1,21 @@
+@-ms-viewport{
+    width: device-width;
+}
+
+body {
+    background-color: #0b0f18;
+    color: #efdfdc;
+    text-align: center;
+    vertical-align: middle;
+}
+a {
+        color: inherit;
+        border-bottom: 1px #545597 solid;
+        text-decoration: none;
+}
+section {
+    padding-bottom: 10px;
+}
+footer {
+    padding-top: 20px;
+}
