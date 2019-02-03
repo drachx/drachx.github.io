@@ -4,18 +4,26 @@
 
 body {
     background-color: #0b0f18;
-    color: #efdfdc;
-    text-align: center;
-    vertical-align: middle;
 }
 a {
-        color: inherit;
-        border-bottom: 1px #545597 solid;
-        text-decoration: none;
+    text-decoration: dotted;
+}
+header {
+    background-color: #0b0f18;
+    color: #f2f2f2;
+    height: 100px;
+    padding: 20 20 100 20;
 }
 section {
-    padding-bottom: 10px;
+    background-color: white;
+    padding: 10 20;
+    border-bottom: solid 1px #f2f2f2;
 }
 footer {
-    padding-top: 20px;
+    background-color: #0b0f18;
+    color: #f2f2f2;
+    padding: 20;
+}
+section h5 {
+    color: #070057
 }
