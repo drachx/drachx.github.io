@@ -15,7 +15,9 @@
 </head>
 <body>
 <script>
-    var timeout = 10*60; //10 mins timer -- walk, talk, drink, anything - just move
+    var timeout = 2;
+    var flashTimer = 250;
+    var flashOut = parseInt(1000 / flashTimer);
 
     var tick = function (timeout) {
         if (timeout > 0) {
@@ -31,7 +33,11 @@
 
     var flash = function () {
         document.body.style.color = document.body.style.color === "purple" ? "green" : "purple";
-        setTimeout(flash, 250);
+        timeout++;
+        var date = new Date(null);
+        date.setSeconds(parseInt(timeout / flashOut));
+        document.body.innerHTML = date.toISOString().substr(11, 8);
+        setTimeout(flash, flashTimer);
     }
     
     tick(timeout);
@@ -41,3 +47,4 @@
     };
 </script>
 </body></html>
+<!-- https://htmlpreview.github.io/?https://drachx.github.io/move.html -->
