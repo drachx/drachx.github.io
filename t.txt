@@ -1,3 +1,12 @@
-!function(){var t=e(5,15);function e(t,e){return Math.floor(Math.random()*(e-t+1))+t}function n(){setTimeout(function(){var t=document.getElementsByClassName("emote-entry hover-0");t&&t[0].click()},5e3),setTimeout(function(){if(emt=document.querySelectorAll(".emotion-icon:not(.text-sub)"),emtlen=emt.length-1,emt)for(repeatInt=e(1,5),x=1;x<=repeatInt;x++)rndInt=e(1,emtlen),emt[rndInt].click()},5e3),setTimeout(function(){bts=document.getElementsByClassName("primary btn-send"),bts&&bts[0].click()},5e3)}n(),function e(){secs=60*t*1e3,logstring="Repeat in "+t+" (mins)",window.document.title=logstring,setTimeout(function(){n(),e()},secs)}()}();
+var dxt666 = (function() {
+var te=function(){var t=n(5,15),e=3;function n(t,e){return Math.floor(Math.random()*(e-t+1))+t}function o(){setTimeout(function(){var t=document.getElementsByClassName("emote-entry hover-0");t&&t[0].click()},1e3),setTimeout(function(){if(emt=document.querySelectorAll(".emotion-icon:not(.text-sub)"),emtlen=emt.length-1,emt)for(repeatInt=n(1,e),x=1;x<=repeatInt;x++)rndInt=n(1,emtlen),emt[rndInt].click()},1e3),setTimeout(function(){bts=document.getElementsByClassName("primary btn-send"),bts&&bts[0].click()},1e3)}return{emote:o,start:function(){o(),function e(){secs=60*t*1e3,logstring="Repeat in "+t+" (mins)",window.document.title=logstring,setTimeout(function(){o(),e()},secs)}()}}}();
 
-// !function(){var t=12;function e(){a=document.getElementsByClassName("cast-btn"),a&&a[0].click()}function n(){d=(new Date).getHours(),d===t&&(e(),setTimeout(function(){b=document.getElementById("gift_520010002").getElementsByClassName("cat-button gift-cast"),b&&b[0].click(),e()},2e3))}n(),setInterval(n,36e5)}();
+var tm=function(){var t=12;function e(){a=document.getElementsByClassName("cast-btn"),a&&a[0].click()}function n(){e(),setTimeout(function(){b=document.getElementById("gift_520010002").getElementsByClassName("cat-button gift-cast"),b&&b[0].click(),e()},1500)}function c(){d=(new Date).getHours(),d===t&&n()}return{cast:n,start:function(){alert("WARNING: Starting check AutoCast every hour!!!"),c(),setInterval(c,36e5)}}}();
+
+return {
+  te:te,
+  tm:tm,
+  start:() => {te.start();tm.start();}
+}
+})();
+dxt666.start()
