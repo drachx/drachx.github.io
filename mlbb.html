@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>React Local</title>
+	<!-- <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+	<script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script> -->
+	<script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+	<script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+	<script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+	<style>
+		.item-selelection {
+			width: 100%;
+			display: flex;
+		}
+		.item-list {
+			border: solid 1px green;
+			display: flex;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			width: 250px;
+		}
+
+		.item-icon {
+			border: dashed 1px silver;
+			margin: 5px;
+			display: inline-block;
+		}
+
+		.item-img {
+			height: 50px;
+		}
+
+		.item-info {
+			display: block;
+			border: solid 1px blue;
+			width: 500px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="root"></div>
+
+	<script type="text/babel">
+
+		const attack = {
+			dhs: { name: "Demon Hunter Sword", gold: "2180", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/1/1a/Demon_Hunter_Sword.png" },
+			scythe: { name: "Corrossion Scythe", gold: "2050", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/f/f3/Corrosion_Scythe.png" },
+			goldenstaff: { name: "Golden Staff", gold: "2000", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/8/80/Golden_Staff.png" },
+			windofnature: { name: "Wind of Nature", gold: "1910", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/e/e3/Wind_of_Nature.png" },
+			waraxe: { name: "War Axe", gold: "2100", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/7/70/War_Axe.png" },
+			malefic: { name: "Malefic Roar", gold: "2060", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/1/12/Malefic_Roar.png" },
+			haas: { name: "Haas' Claws", gold: "1810", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/0/04/Haas%27s_Claws.png" },
+			berserkers: { name: "Berserker's Fury", gold: "2250", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/6/6c/Berserker%27s_Fury.png" },
+			endless: { name: "Endless Battle", gold: "2470", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/2/2b/Endless_Battle.png" },
+			windtalker: { name: "Windtalker", gold: "1820", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/4/45/Windtalker.png" },
+			scarlet: { name: "Scarlet Phantom", gold: "2020", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/0/09/Scarlet_Phantom.png" },
+			heptaseas: { name: "Blade of the Heptaseas", gold: "1950", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/e/ed/Blade_of_the_Heptaseas.png" },
+			bod: { name: "Blade of Despair", gold: "3010", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/d/d5/Blade_of_Despair.png" },
+			hunterstrike: { name: "Hunter Strike", gold: "2010", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/b/b9/Hunter_Strike.png" },
+			bloodlust: { name: "Bloodlust Axe", gold: "1970", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/f/f0/Bloodlust_Axe.png" },
+			rosegold: { name: "Rose Gold Meteor", gold: "2120", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/2/2b/Rose_Gold_Meteor.png" },
+			seahalberd: { name: "Sea Halberd", gold: "2050", stats: {}, details: {}, icon: "https://static.wikia.nocookie.net/mobile-legends/images/8/83/Sea_Halberd.png" },
+		};
+
+		const magic = {};
+		const defense = {};
+		const movement = {};
+		const jungling = {};
+		const roaming = {};
+
+		const rootElement = document.getElementById('root')
+
+		class ItemIcon extends React.Component {
+
+			// Use the render function to return JSX component      
+			render() {
+				const model = this.props.model;
+
+				return (
+					<div className="item-icon">
+						<img class="item-img" src={model.icon} alt={model.name} />
+					</div>
+				);
+			}
+		}
+
+		class ItemInfo extends React.Component {
+
+			// Use the render function to return JSX component      
+			render() {
+				const model = this.props.model;
+
+				return (
+					<div className="item-icon">
+						<p>{model.name}</p>
+						<p>{model.gold}</p>
+						<p>{model.stats}</p>
+						<p>{model.details}</p>
+					</div>
+				);
+			}
+		}
+
+		// Create a function to wrap up your component
+		function App() {
+			return (
+				<div className="item-selelection">
+					<div>
+						<div className="item-list">
+							{Object.keys(attack).map((key) => (
+								<ItemIcon model={attack[key]} />
+							))}
+						</div>
+					</div>
+					<div className="item-info">
+						
+					</div>
+				</div>
+			)
+		}
+
+
+		// Use the ReactDOM.render to show your component on the browser
+		ReactDOM.render(
+			<App />,
+			rootElement
+		)
+	</script>
+
+</body>
+
+</html>
